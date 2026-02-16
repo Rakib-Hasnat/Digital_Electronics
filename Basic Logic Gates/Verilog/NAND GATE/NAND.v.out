@@ -1,0 +1,49 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000002517ebb68c0 .scope module, "nand_gate" "nand_gate" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /OUTPUT 1 "X";
+    .port_info 3 /OUTPUT 1 "Y";
+    .port_info 4 /OUTPUT 1 "Z";
+o000002517eae6fb8 .functor BUFZ 1, C4<z>; HiZ drive
+L_000002517ebbbf70 .functor AND 1, o000002517eae6fb8, o000002517eae6fb8, C4<1>, C4<1>;
+L_000002517ebb8590 .functor NOT 1, L_000002517ebbbf70, C4<0>, C4<0>, C4<0>;
+o000002517eae6fe8 .functor BUFZ 1, C4<z>; HiZ drive
+L_000002517ebb8980 .functor AND 1, o000002517eae6fb8, o000002517eae6fe8, C4<1>, C4<1>;
+L_000002517ebbd830 .functor NOT 1, L_000002517ebb8980, C4<0>, C4<0>, C4<0>;
+L_000002517ebb6f20 .functor AND 1, L_000002517ebbd830, L_000002517ebbd830, C4<1>, C4<1>;
+L_000002517eae4360 .functor NOT 1, L_000002517ebb6f20, C4<0>, C4<0>, C4<0>;
+L_000002517ebb6b80 .functor AND 1, o000002517eae6fb8, o000002517eae6fb8, C4<1>, C4<1>;
+L_000002517ebb6c80 .functor NOT 1, L_000002517ebb6b80, C4<0>, C4<0>, C4<0>;
+L_000002517ebb6cf0 .functor AND 1, o000002517eae6fe8, o000002517eae6fe8, C4<1>, C4<1>;
+L_000002517eae3f40 .functor NOT 1, L_000002517ebb6cf0, C4<0>, C4<0>, C4<0>;
+L_000002517eb2be30 .functor AND 1, L_000002517ebb6c80, L_000002517eae3f40, C4<1>, C4<1>;
+L_000002517eb2c140 .functor NOT 1, L_000002517eb2be30, C4<0>, C4<0>, C4<0>;
+v000002517ebb7140_0 .net "A", 0 0, o000002517eae6fb8;  0 drivers
+v000002517ebbd790_0 .net "B", 0 0, o000002517eae6fe8;  0 drivers
+v000002517ebb88e0_0 .net "X", 0 0, L_000002517ebb8590;  1 drivers
+v000002517ebb84f0_0 .net "Y", 0 0, L_000002517eae4360;  1 drivers
+v000002517ebb6a50_0 .net "Z", 0 0, L_000002517eb2c140;  1 drivers
+v000002517eae2e70_0 .net *"_ivl_0", 0 0, L_000002517ebbbf70;  1 drivers
+v000002517eae1f70_0 .net *"_ivl_12", 0 0, L_000002517ebb6b80;  1 drivers
+v000002517eae2470_0 .net *"_ivl_16", 0 0, L_000002517ebb6cf0;  1 drivers
+v000002517eae2830_0 .net *"_ivl_20", 0 0, L_000002517eb2be30;  1 drivers
+v000002517eae2a10_0 .net *"_ivl_4", 0 0, L_000002517ebb8980;  1 drivers
+v000002517eae2bf0_0 .net *"_ivl_8", 0 0, L_000002517ebb6f20;  1 drivers
+v000002517eae2330_0 .net "u", 0 0, L_000002517ebbd830;  1 drivers
+v000002517eae2c90_0 .net "v", 0 0, L_000002517ebb6c80;  1 drivers
+v000002517eae2d30_0 .net "w", 0 0, L_000002517eae3f40;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "NAND.v";
