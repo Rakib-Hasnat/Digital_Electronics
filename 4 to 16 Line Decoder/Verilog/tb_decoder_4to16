@@ -1,0 +1,27 @@
+
+`timescale 1ns/1ps
+
+module tb_decoder_4to16;
+
+    reg  [3:0] sel;
+    wire [15:0] y;
+    integer i;
+
+    decoder_4to16 uut (
+        .sel(sel),
+        .y(y)
+    );
+
+    initial begin
+        $display("sel    y");
+        $monitor("%b   %b", sel, y);
+
+        for (i = 0; i < 16; i = i + 1) begin
+            sel = i;
+            #10;
+        end
+
+        $finish;
+    end
+
+endmodule
