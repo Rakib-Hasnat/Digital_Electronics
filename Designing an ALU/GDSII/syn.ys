@@ -1,0 +1,9 @@
+
+
+read_verilog exp_05.v
+synth -top alu 
+dfflibmap -liberty NangateOpenCellLibrary_typical.lib
+abc -liberty NangateOpenCellLibrary_typical.lib
+opt_clean
+write_verilog -noattr alu_net.v
+
