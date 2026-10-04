@@ -39,8 +39,7 @@ TESTS=(
   "demux_random     |09-demux-1to8                 |demux_1to8.v             |tb_demux_1to8_random.v     |1"
   "d_flip_flop      |10-d-flip-flop                |d_flip_flop.v            |tb_d_flip_flop.v           |0"
   "jk_ms_ff         |11-jk-master-slave-flip-flop  |jk_ms_ff.v               |tb_jk_ms_ff.v              |1"
-  "t_ff_sync        |12-t-flip-flop                |t_ff_sync_preset_clear.v |tb_t_ff.v                  |0"
-  "t_ff_async       |12-t-flip-flop                |t_ff_async_preset_clear.v|tb_t_ff.v                  |0"
+  "t_flip_flop      |12-t-flip-flop                |t_ff_sync_preset_clear.v t_ff_async_preset_clear.v |tb_t_ff.v |1"
   "async_counter    |13-async-up-counter-4bit      |async_counter_4bit.v     |tb_async_counter_4bit.v    |1"
 )
 
@@ -54,8 +53,9 @@ for t in "${TESTS[@]}"; do
 
     out="build/$name"; mkdir -p "$out"
     src="$lab/verilog"
+    files=(); for d in $design; do files+=("$src/$d"); done   # one or more design files
     status="ok"
-    if ! iverilog -g2012 -o "$out/sim.vvp" "$src/$design" "$src/$tb" > "$out/compile.log" 2>&1; then
+    if ! iverilog -g2012 -o "$out/sim.vvp" "${files[@]}" "$src/$tb" > "$out/compile.log" 2>&1; then
         status="compile error"; log="$out/compile.log"
     else
         log="$out/sim.log"

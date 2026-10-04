@@ -13,7 +13,7 @@ Coursework for the Digital Electronics lab, Department of EEE, University of Chi
 
 ## Highlights
 
-- **Every Verilog design is tested automatically.** `bash run_all.sh` compiles and runs all 17 testbenches, and a GitHub Action runs it on every push. Combinational testbenches compare the design against an independent reference model (for example, the full adder is checked against `A + B + C`), so a wrong output fails the build.
+- **Every Verilog design is tested automatically.** `bash run_all.sh` compiles and runs all 16 testbenches, and a GitHub Action runs it on every push. Combinational testbenches compare the design against an independent reference model (for example, the full adder is checked against `A + B + C`), so a wrong output fails the build.
 - **RTL to layout.** The [ALU](05-alu) is synthesized to the Nangate45 cell library with Yosys, its netlist is formally proven equivalent to the RTL, its timing is checked with OpenSTA, and it is placed and routed with OpenROAD-flow-scripts.
 - **Gate-level sequential logic.** The [D](10-d-flip-flop) and [J-K master-slave](11-jk-master-slave-flip-flop) flip-flops are built from NAND gates with propagation delays, the way the 74-series ICs are, rather than with behavioral `always` blocks.
 - **Below the gate level.** The [DTL NAND gate](02-dtl-logic-circuit) is simulated with diodes and a BJT in LTspice.
@@ -51,10 +51,10 @@ bash run_all.sh 11    # run only lab 11
 
 ```
   PASS  basic_gates       PASS: 7 checks
-  PASS  adder             PASS: 29 checks
+  PASS  adder             PASS: 28 checks
   PASS  alu               PASS: 64 checks
   ...
-17 passed, 0 failed
+16 passed, 0 failed
 ```
 
 Waveforms are written to `build/<test>/` (for example `gtkwave build/jk_ms_ff/jk_ms_ff.vcd`).

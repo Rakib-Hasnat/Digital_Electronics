@@ -1,9 +1,10 @@
 `timescale 1ns/1ps
 
-// T flip-flop, positive-edge triggered, with SYNCHRONOUS active-low
-// preset (pr) and clear (cr): they only take effect on a rising clock edge.
-// Note: the output toggles when t == 0 (active-low T input).
-module t_type (
+// T flip-flop, positive-edge triggered: Q toggles on every rising clock edge
+// while t = 1 and holds while t = 0.
+// SYNCHRONOUS active-low preset (pr) and clear (cr): they only take effect
+// on a rising clock edge.
+module t_ff_sync (
     input  wire clk,
     input  wire t,
     input  wire pr,
@@ -24,7 +25,7 @@ module t_type (
         end
         
 	else if ((pr == 1'b1) && (cr == 1'b1)) begin
-            if (t == 0) begin
+            if (t == 1'b1) begin     // toggle mode
                 q     <= ~q;
                 q_bar <= ~q_bar;
             end
