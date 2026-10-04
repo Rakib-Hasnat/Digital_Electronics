@@ -1,0 +1,9 @@
+# Yosys synthesis of the ALU to the Nangate45 open cell library.
+# Run from this folder:  yosys -s syn.ys
+read_verilog ../verilog/alu.v
+synth -top alu
+dfflibmap -liberty NangateOpenCellLibrary_typical.lib
+abc -liberty NangateOpenCellLibrary_typical.lib
+opt_clean
+stat -liberty NangateOpenCellLibrary_typical.lib
+write_verilog -noattr alu_netlist.v

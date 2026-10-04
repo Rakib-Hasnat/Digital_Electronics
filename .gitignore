@@ -1,0 +1,27 @@
+# Simulation outputs (regenerate with ./run_all.sh)
+build/
+*.vvp
+*.vcd
+*.fst
+*.out
+a.out
+abc
+
+# LTspice outputs
+*.raw
+*.log
+*.net
+
+# ORFS / OpenROAD run outputs
+logs/
+objects/
+reports/
+results/
+
+# Office lock files and editor settings
+~$*
+*.code-workspace
+.vscode/
+Thumbs.db
+desktop.ini
+.DS_Store
